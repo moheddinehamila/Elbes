@@ -1,4 +1,4 @@
-package HR.Databank.Elbes.Services;
+package hr.databank.elbes.services;
 
 public interface IArticleService {
 }
