@@ -20,6 +20,9 @@ public class Panier {
         this.qte = qte;
         this.prixtotal = prixtotal;
         this.PanierId=PanierId;
+
+
+        
     }
     public Panier() {
     }
