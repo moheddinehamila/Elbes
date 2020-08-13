@@ -1,4 +1,4 @@
-package HR.Databank.Elbes;
+package hr.databank.elbes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

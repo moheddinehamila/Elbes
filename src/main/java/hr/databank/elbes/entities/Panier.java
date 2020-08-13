@@ -1,4 +1,4 @@
-package HR.Databank.Elbes.Entities;
+package hr.databank.elbes.entities;
 
 public class Panier {
 
