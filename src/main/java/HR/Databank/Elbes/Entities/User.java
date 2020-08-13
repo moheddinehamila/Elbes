@@ -12,7 +12,7 @@ public class User {
 	public int UserId;
 
 	private String name;
-	private String fname;
+	private String familyName;
 
 	private String email;
 	
@@ -68,11 +68,11 @@ public class User {
 	}
 
 	public String getFname() {
-		return fname;
+		return familyName;
 	}
 
 	public void setFname(String fname) {
-		this.fname = fname;
+		this.familyName = fname;
 	}
 	
 	
