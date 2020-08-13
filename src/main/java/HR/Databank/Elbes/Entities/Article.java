@@ -52,7 +52,7 @@ public class Article {
 
 
 
-    public Article(String refArticle, String nameArticle, String couleur, int taille, int qte) {
+    public Article(String refArticle, String nameArticle, String couleur, int taille, int qte, int prix) {
         this.refArticle = refArticle;
         this.nameArticle = nameArticle;
         this.couleur = couleur;
