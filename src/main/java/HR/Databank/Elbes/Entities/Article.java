@@ -8,17 +8,25 @@ import javax.persistence.Id;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private Long idArticle;
     @Column(unique = true,nullable = false)
     private String refArticle;
     private String nameArticle;
     private String couleur;
     private int taille ;
-    private float qte;
-    private double amount;
+    private int qte;
+    private float prix;
 
-    public Long getId() {
-        return id;
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public Long getIdArticle() {
+        return idArticle;
     }
 
     public String getRefArticle() {
@@ -41,25 +49,23 @@ public class Article {
         return qte;
     }
 
-    public double getAmount() {
-        return amount;
-    }
 
 
-    public Article(String refArticle, String nameArticle, String couleur, int taille, float qte, double amount) {
+
+    public Article(String refArticle, String nameArticle, String couleur, int taille, int qte) {
         this.refArticle = refArticle;
         this.nameArticle = nameArticle;
         this.couleur = couleur;
         this.taille = taille;
         this.qte = qte;
-        this.amount = amount;
+        this.prix= prix;
     }
 
     public Article() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdArticle(Long idArticle) {
+        this.idArticle = idArticle;
     }
 
     public void setRefArticle(String refArticle) {
@@ -78,12 +84,10 @@ public class Article {
         this.taille = taille;
     }
 
-    public void setQte(float qte) {
+    public void setQte(int qte) {
         this.qte = qte;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
+
 
 }
