@@ -1,4 +1,4 @@
-package HR.Databank.Elbes;
+package hr.databank.elbes;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
