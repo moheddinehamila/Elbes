@@ -12,6 +12,7 @@ public class User {
 	public int UserId;
 
 	private String name;
+	private String familyName;
 
 	private String email;
 	
@@ -64,6 +65,14 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getFname() {
+		return familyName;
+	}
+
+	public void setFname(String fname) {
+		this.familyName = fname;
 	}
 	
 	
