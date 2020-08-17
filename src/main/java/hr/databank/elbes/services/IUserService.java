@@ -2,13 +2,13 @@ package hr.databank.elbes.services;
 
 import java.util.List;
 
-import hr.databank.elbes.entities.User;
+import hr.databank.elbes.entities.UserEntity;
 
  
 public interface IUserService {
-    User ajouterProduit(User u);
-    User modifierProduit(User u);
-    boolean supprimerProduit(Long id);
-    User findById(Long id);
-    List<User> getAll();
+    UserEntity AddUser(UserEntity u);
+    UserEntity UpdateUser(UserEntity u);
+    boolean DeleteUser(int id);
+    UserEntity findById(int id);
+    List<UserEntity> getAll();
 }

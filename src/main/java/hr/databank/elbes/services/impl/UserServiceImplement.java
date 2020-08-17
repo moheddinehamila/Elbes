@@ -2,38 +2,42 @@ package hr.databank.elbes.services.impl;
 
 import java.util.List;
 
-import hr.databank.elbes.entities.User;
+import hr.databank.elbes.entities.UserEntity;
 import hr.databank.elbes.services.IUserService;
 
 public class UserServiceImplement implements IUserService {
 
 	@Override
-	public User ajouterProduit(User u) {
+	public UserEntity AddUser(UserEntity u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public User modifierProduit(User u) {
+	public UserEntity UpdateUser(UserEntity u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean supprimerProduit(Long id) {
+	public boolean DeleteUser(int id) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public User findById(Long id) {
+	public UserEntity findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> getAll() {
+	public List<UserEntity> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+ 
+
+	 
 }

@@ -1,16 +1,14 @@
 package hr.databank.elbes.dao.repo;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.List; 
 
-import hr.databank.elbes.entities.User;
+import hr.databank.elbes.entities.UserEntity;
 
  
 public interface IUserDAO {
-    User ajouterProduit(User produit);
-    User modifierProduit(User produit);
-    Boolean supprimerProduit(Long id);
-    Optional<User>findById(Long id);
-    List<User>getAll ();
-
+    UserEntity AddUser(UserEntity u);
+    UserEntity UpdateUser(UserEntity u);
+    boolean DeleteUser(Long id);
+    UserEntity findById(Long id);
+    List<UserEntity> getAll();
 }
