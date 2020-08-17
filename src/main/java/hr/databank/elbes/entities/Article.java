@@ -1,15 +1,22 @@
 package hr.databank.elbes.entities;
 
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
+import javax.persistence.*;
+import java.util.UUID;
+@AllArgsConstructor
+@Getter
+@Entity
+@Table (name="Article")
 
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idArticle;
+
+    private UUID idArticle;
+
     @Column(unique = true,nullable = false)
     private String refArticle;
     private String nameArticle;
@@ -18,76 +25,7 @@ public class Article {
     private int qte;
     private float prix;
 
-    public float getPrix() {
-        return prix;
-    }
 
-    public void setPrix(float prix) {
-        this.prix = prix;
-    }
-
-    public Long getIdArticle() {
-        return idArticle;
-    }
-
-    public String getRefArticle() {
-        return refArticle;
-    }
-
-    public String getNameArticle() {
-        return nameArticle;
-    }
-
-    public String getCouleur() {
-        return couleur;
-    }
-
-    public int getTaille() {
-        return taille;
-    }
-
-    public float getQte() {
-        return qte;
-    }
-
-
-
-
-    public Article(String refArticle, String nameArticle, String couleur, int taille, int qte, int prix) {
-        this.refArticle = refArticle;
-        this.nameArticle = nameArticle;
-        this.couleur = couleur;
-        this.taille = taille;
-        this.qte = qte;
-        this.prix= prix;
-    }
-
-    public Article() {
-    }
-
-    public void setIdArticle(Long idArticle) {
-        this.idArticle = idArticle;
-    }
-
-    public void setRefArticle(String refArticle) {
-        this.refArticle = refArticle;
-    }
-
-    public void setNameArticle(String nameArticle) {
-        this.nameArticle = nameArticle;
-    }
-
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
-    }
-
-    public void setTaille(int taille) {
-        this.taille = taille;
-    }
-
-    public void setQte(int qte) {
-        this.qte = qte;
-    }
 
 
 
