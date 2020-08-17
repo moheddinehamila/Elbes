@@ -14,13 +14,13 @@ import java.util.UUID;
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID idArticle;
+    @Column(unique = true,nullable = false)
 
+    private UUID idArticle;
     private String refArticle;
     private String nameArticle;
     private String couleur;
     private int taille ;
     private int qte;
     private float prix;
-
 }
