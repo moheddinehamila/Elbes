@@ -6,9 +6,10 @@ import hr.databank.elbes.entities.UserEntity;
 
  
 public interface IUserService {
-    UserEntity ajouterProduit(UserEntity u);
-    UserEntity modifierProduit(UserEntity u);
-    boolean supprimerProduit(Long id);
-    UserEntity findById(Long id);
+
+    UserEntity AddUser(UserEntity u);
+    UserEntity UpdateUser(UserEntity u);
+    boolean DeleteUser(int id);
+    UserEntity findById(int id);
     List<UserEntity> getAll();
 }
