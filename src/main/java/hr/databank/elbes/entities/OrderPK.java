@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import java.util.Date;
@@ -16,6 +17,7 @@ public class OrderPK implements Serializable {
     public int UserId;
     private Long idArticle;
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
+    @Column(nullable = false)
     private Date dateOrder;
 
 }

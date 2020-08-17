@@ -4,17 +4,17 @@ import java.util.List;
 import java.util.Optional;
 
 import hr.databank.elbes.dao.repo.IUserDAO;
-import hr.databank.elbes.entities.User;
+import hr.databank.elbes.entities.UserEntity;
 
 public class UserDAOImpl implements IUserDAO{
 
 	@Override
-	public User ajouterProduit(User produit) {
+	public UserEntity ajouterProduit(UserEntity produit) {
 		return null;
 	}
 
 	@Override
-	public User modifierProduit(User produit) {
+	public UserEntity modifierProduit(UserEntity produit) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -26,13 +26,13 @@ public class UserDAOImpl implements IUserDAO{
 	}
 
 	@Override
-	public Optional<User> findById(Long id) {
+	public Optional<UserEntity> findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<User> getAll() {
+	public List<UserEntity> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
