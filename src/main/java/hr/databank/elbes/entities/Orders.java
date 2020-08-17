@@ -14,12 +14,9 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class Order implements Serializable {
+public class Orders implements Serializable {
     @EmbeddedId
     private OrderPK orderPK;
-
-
-
 
 }
 

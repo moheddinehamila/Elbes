@@ -20,7 +20,6 @@ public class Basket {
     private Long idArticle;
     private int qte;
     private float prixtotal;
-
     private int IdBasket;
 
 
