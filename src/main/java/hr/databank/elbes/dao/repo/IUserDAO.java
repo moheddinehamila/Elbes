@@ -1,5 +1,6 @@
 package hr.databank.elbes.dao.repo;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -12,5 +13,6 @@ public interface IUserDAO {
     Boolean supprimerProduit(Long id);
     Optional<User>findById(Long id);
     List<User>getAll ();
+
 
 }
