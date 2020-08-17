@@ -23,8 +23,4 @@ public class Article {
     private int qte;
     private float prix;
 
-
-
-
-
 }
