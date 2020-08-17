@@ -7,22 +7,14 @@ import hr.databank.elbes.services.IUserService;
 
 public class UserServiceImplement implements IUserService {
 
-	@Override
-<<<<<<< HEAD
-	public UserEntity AddUser(UserEntity u) {
-=======
-	public UserEntity ajouterProduit(UserEntity u) {
->>>>>>> cce85eb16808d200b424b07037f4cc9ec2b0391b
+	@Override 
+	public UserEntity AddUser(UserEntity u) { 
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-<<<<<<< HEAD
-	public UserEntity UpdateUser(UserEntity u) {
-=======
-	public UserEntity modifierProduit(UserEntity u) {
->>>>>>> cce85eb16808d200b424b07037f4cc9ec2b0391b
+	@Override 
+	public UserEntity UpdateUser(UserEntity u) {  
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -33,12 +25,8 @@ public class UserServiceImplement implements IUserService {
 		return false;
 	}
 
-	@Override
-<<<<<<< HEAD
-	public UserEntity findById(int id) {
-=======
-	public UserEntity findById(Long id) {
->>>>>>> cce85eb16808d200b424b07037f4cc9ec2b0391b
+	@Override 
+	public UserEntity findById(int id) { 
 		// TODO Auto-generated method stub
 		return null;
 	}
