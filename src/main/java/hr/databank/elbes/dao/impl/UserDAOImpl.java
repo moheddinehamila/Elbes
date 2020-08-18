@@ -2,7 +2,7 @@ package hr.databank.elbes.dao.impl;
 
 import java.util.List; 
 
-import hr.databank.elbes.dao.repo.IUserDAO;
+import hr.databank.elbes.dao.IUserDAO;
 import hr.databank.elbes.entities.UserEntity;
 
 public class UserDAOImpl implements IUserDAO{

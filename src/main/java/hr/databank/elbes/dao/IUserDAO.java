@@ -1,4 +1,4 @@
-package hr.databank.elbes.dao.repo;
+package hr.databank.elbes.dao;
 
 
 import java.util.List;  
