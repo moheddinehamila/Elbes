@@ -1,4 +1,5 @@
 package hr.databank.elbes.entities;
+
 import java.io.Serializable;
 
 import lombok.Getter;
@@ -9,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
 import java.util.Date;
+
 @Getter
 @Setter
 
