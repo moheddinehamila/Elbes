@@ -1,25 +1,24 @@
 package hr.databank.elbes.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
+
 
 import javax.persistence.*;
 
-@AllArgsConstructor
+
 
 @Entity
-
+@NoArgsConstructor
 @Table (name="Article")
 
-public class Article {
+public class Article  {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idArticle")
     private int  idArticle;
-
-
 
     @Column(name = "nameArticle")
     private String nameArticle;
@@ -37,6 +36,20 @@ public class Article {
     private float prix;
 
 
+public  Article (@JsonProperty("idarticle") int idArticle ,
+                 @JsonProperty("name") String nameArticle,
+                 @JsonProperty("couleur")  String couleur,
+                 @JsonProperty("taille") int taille ,
+                 @JsonProperty("qte") int qte ,
+                 @JsonProperty("prix") float prix  ){
+    this.idArticle= idArticle;
+    this.nameArticle= nameArticle;
+    this.couleur= couleur;
+    this.taille= taille ;
+    this.qte= qte ;
+    this.prix= prix;
+
+}
 
     public float getPrix() {
         return prix;

@@ -13,17 +13,18 @@ import java.util.*;
 @Transactional
 @Repository
 public class ArticleDAOImpl implements IArticleDAO {
-
 @PersistenceContext
 private EntityManager entityManager ;
 
-@SuppressWarnings("unchecked")
+
+    @SuppressWarnings("unchecked")
 
 
     @Override
     public List<Article> getArticles() {
-    String hql ="FROM Article as a ORDER BY a.id ";
+        String hql = "FROM Article as a ORDER BY a.idArticle";
         return (List<Article>) entityManager.createQuery(hql).getResultList();
+
     }
 
     @Override
@@ -40,11 +41,14 @@ private EntityManager entityManager ;
     }
 
     private Article getLastInsertedArticle() {
-        String hql = "from Article order by id DESC";
+
+        String hql = "from  Article order by  idArticle  DESC ";
         Query query = entityManager.createQuery(hql);
         query.setMaxResults(1);
        Article article= (Article) query.getSingleResult();
         return article;
+
+
     }
 
     @Override
