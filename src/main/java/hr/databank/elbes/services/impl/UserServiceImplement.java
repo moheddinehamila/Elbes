@@ -1,6 +1,7 @@
 package hr.databank.elbes.services.impl;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -16,11 +17,13 @@ public class UserServiceImplement implements IUserService {
 	@Override 
 	public UserEntity AddUser(UserEntity u) { 
 		return iudao.AddUser(u);
+
 	}
 
 	@Override 
 	public UserEntity UpdateUser(UserEntity u) {  
 		return iudao.UpdateUser(u);
+	
 	}
 
 	@Override
@@ -28,14 +31,14 @@ public class UserServiceImplement implements IUserService {
 		return iudao.DeleteUser(id);
 	}
 
-	@Override 
-	public UserEntity findById(int id) { 
+	@Override
+	public List<UserEntity> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<UserEntity> getAll() {
+	public Optional<UserEntity> findById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

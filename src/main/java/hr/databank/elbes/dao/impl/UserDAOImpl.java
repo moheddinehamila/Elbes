@@ -25,6 +25,8 @@ public class UserDAOImpl implements IUserDAO{
 	public UserEntity UpdateUser(UserEntity u) {  
 
 		return ur.save(u);
+		// TODO Auto-generated method stub
+ 
 	}
 
 	@Override
@@ -35,19 +37,17 @@ public class UserDAOImpl implements IUserDAO{
 	        	
 	            return true;
 	}
-
-	@Override 
-	public UserEntity findById(int id) { 
-		return null;//ur.findById(id);
-	}
-
+ 
 	@Override
 	public List<UserEntity> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
- 
-
-	 
+	@Override
+	public Optional<UserEntity> findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+ 	 
 }
