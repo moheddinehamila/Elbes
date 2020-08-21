@@ -1,46 +1,44 @@
 package hr.databank.elbes.dao.impl;
 
-import java.util.List; 
+import java.util.List;
+import java.util.Optional;
 
-import hr.databank.elbes.dao.repo.IUserDAO;
+import org.springframework.beans.factory.annotation.Autowired;
+ 
+
+import hr.databank.elbes.dao.IUserDAO;
+import hr.databank.elbes.dao.repo.UserRepository;
 import hr.databank.elbes.entities.UserEntity;
 
 public class UserDAOImpl implements IUserDAO{
 
+    @Autowired
+	UserRepository ur;
+    
 	@Override
-<<<<<<< HEAD
 	public UserEntity AddUser(UserEntity u) {
-		// TODO Auto-generated method stub
-=======
-	public UserEntity ajouterProduit(UserEntity produit) {
->>>>>>> cce85eb16808d200b424b07037f4cc9ec2b0391b
-		return null;
+		
+		return ur.save(u);
+	}
+
+	@Override 
+	public UserEntity UpdateUser(UserEntity u) {  
+
+		return ur.save(u);
 	}
 
 	@Override
-<<<<<<< HEAD
-	public UserEntity UpdateUser(UserEntity u) {
-=======
-	public UserEntity modifierProduit(UserEntity produit) {
->>>>>>> cce85eb16808d200b424b07037f4cc9ec2b0391b
-		// TODO Auto-generated method stub
-		return null;
+	public boolean DeleteUser(int id) {
+		   Optional<UserEntity>userOptional = ur.findById(id);
+	        if (userOptional.isPresent()) 
+	        	ur.delete(userOptional.get());
+	        	
+	            return true;
 	}
 
-	@Override
-	public boolean DeleteUser(Long id) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-<<<<<<< HEAD
-	public UserEntity findById(Long id) {
-=======
-	public Optional<UserEntity> findById(Long id) {
->>>>>>> cce85eb16808d200b424b07037f4cc9ec2b0391b
-		// TODO Auto-generated method stub
-		return null;
+	@Override 
+	public UserEntity findById(int id) { 
+		return null;//ur.findById(id);
 	}
 
 	@Override
