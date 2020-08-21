@@ -1,6 +1,6 @@
 package hr.databank.elbes.services.impl;
 
-import hr.databank.elbes.dao.repo.IArticleDAO;
+import hr.databank.elbes.dao.IArticleDAO;
 import hr.databank.elbes.entities.Article;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

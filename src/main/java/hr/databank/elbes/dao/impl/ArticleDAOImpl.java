@@ -1,6 +1,6 @@
 package hr.databank.elbes.dao.impl;
 
-import hr.databank.elbes.dao.repo.IArticleDAO;
+import hr.databank.elbes.dao.IArticleDAO;
 import hr.databank.elbes.entities.Article;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
