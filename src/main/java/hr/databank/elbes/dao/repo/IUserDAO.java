@@ -1,7 +1,8 @@
-package hr.databank.elbes.dao.repo;
+package hr.databank.elbes.dao;
 
 
-import java.util.List;  
+import java.util.List;
+import java.util.Optional;
 
 import hr.databank.elbes.entities.UserEntity;
 
@@ -10,8 +11,8 @@ public interface IUserDAO {
 
     UserEntity AddUser(UserEntity u);
     UserEntity UpdateUser(UserEntity u);
-    boolean DeleteUser(Long id);
-    UserEntity findById(Long id);
+    boolean DeleteUser(int id);
+    Optional<UserEntity> findById(int id);
     List<UserEntity> getAll();
 }
 
