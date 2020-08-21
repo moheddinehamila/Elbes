@@ -17,8 +17,6 @@ public class OrderController {
         return "AddOrder";
     }
 
-    Orders AddOrder(Orders o){
 
-    }
 
 }
