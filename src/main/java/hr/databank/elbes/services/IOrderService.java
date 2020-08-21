@@ -4,10 +4,13 @@ import hr.databank.elbes.entities.Orders;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface IOrderService {
     Orders AddOrder(Orders o);
-    Orders findById(int UserId, Long idArticle, Date dateOrder);
+    Optional<Orders> findById(Long IdOrder);
     List<Orders> getAll();
 }
+
+
