@@ -19,5 +19,6 @@ public class OrderPK implements Serializable {
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(nullable = false)
     private Date dateOrder;
+    private int IdBasket;
 
 }

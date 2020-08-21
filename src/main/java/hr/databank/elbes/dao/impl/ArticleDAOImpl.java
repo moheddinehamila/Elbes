@@ -9,7 +9,7 @@ import java.util.*;
 
 
 @Repository
-public class ArticleDAOImpl implements IArticleDAO {
+public class ArticleDAOImpl implements IArticleDAO  {
 
 
     private final JdbcTemplate jdbcTemplate ;
