@@ -2,12 +2,13 @@ package hr.databank.elbes.dao.impl;
 
 import java.util.List;
 import java.util.Optional;
+import hr.databank.elbes.dao.IUserDAO;
 
 import org.springframework.beans.factory.annotation.Autowired;
  
 
-import hr.databank.elbes.dao.IUserDAO;
 import hr.databank.elbes.dao.repo.UserRepository;
+
 import hr.databank.elbes.entities.UserEntity;
 
 public class UserDAOImpl implements IUserDAO{
