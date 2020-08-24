@@ -14,9 +14,8 @@ import java.util.*;
 @Repository
 
 public class ArticleDAOImpl implements IArticleDAO {
-@PersistenceContext
-private EntityManager entityManager ;
-
+    @PersistenceContext
+    private EntityManager entityManager;
 
 
     @SuppressWarnings("unchecked")
@@ -24,61 +23,43 @@ private EntityManager entityManager ;
 
     @Override
     public List<Article> getArticles() {
-        String hql = "FROM Article as a ORDER BY a.idArticle";
+        String hql = "select a from Article a ORDER BY a.idArticle";
         return (List<Article>) entityManager.createQuery(hql).getResultList();
+
+        //String loginQuery = "select u from UserEntity u where u.email=:email and u.password=:password";
+       // return entityManager.createQuery(loginQuery).setParameter("email",'email@email.com').setParameter("password","pass123").getSingleResult();
+
 
     }
 
     @Override
     public Article getArticle(int articleId) {
 
-    return entityManager.find(Article.class, articleId);
+        return entityManager.find(Article.class, articleId);
     }
 
     @Override
     public Article createArticle(Article article) {
         entityManager.persist(article);
-        Article b =getLastInsertedArticle();
-        return b;
-    }
-
-    private Article getLastInsertedArticle() {
-
-        String hql = "from  Article order by  idArticle  DESC ";
-        Query query = entityManager.createQuery(hql);
-        query.setMaxResults(1);
-       Article article= (Article) query.getSingleResult();
         return article;
+    }
+  
 
-
+    @Override
+    public Article updateArticle(Article article) {
+        entityManager.merge(article);
+        return article;
     }
 
     @Override
-    public Article updateArticle(int articleId, Article article) {
-        Article articleFromDB = getArticle(articleId);
-        articleFromDB.setIdArticle(article.getIdArticle());
-        articleFromDB.setNameArticle(article.getNameArticle());
-        articleFromDB.setCouleur(article.getCouleur());
-        articleFromDB.setTaille(article.getTaille());
-        articleFromDB.setPrix(article.getPrix());
-        articleFromDB.setQte(article.getQte());
-        entityManager.flush();
-
-
-        Article updatedArticel  = getArticle(articleId);
-
-        return updatedArticel;
-}
-
-    @Override
-    public boolean deleteArticle(int articleId) {
-        Article article = getArticle(articleId);
-        entityManager.remove(article);
+    public boolean deleteArticle(Article article) {
+        entityManager.remove(entityManager.merge(article));
 
         boolean status = entityManager.contains(article);
-        if(status){
+        if (status) {
             return false;
         }
-        return true;}
+        return true;
+    }
 
 }

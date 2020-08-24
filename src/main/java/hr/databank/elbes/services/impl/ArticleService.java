@@ -5,7 +5,6 @@ import hr.databank.elbes.entities.Article;
 import hr.databank.elbes.services.IArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -32,12 +31,12 @@ public class ArticleService implements IArticleService {
     }
 
     @Override
-    public Article updateArticle(int articleId, Article article) {
-        return dao.updateArticle(articleId,article);
+    public Article updateArticle( Article article) {
+        return dao.updateArticle(article);
     }
 
     @Override
-    public boolean deleteArticle(int articleId) {
-        return dao.deleteArticle(articleId);
+    public boolean deleteArticle(Article article) {
+        return dao.deleteArticle(article);
     }
 }

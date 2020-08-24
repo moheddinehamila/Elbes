@@ -7,12 +7,15 @@ import java.util.List;
 
 public interface IArticleDAO {
 
-    List<Article> getArticles ();
-    Article getArticle (int articleId);
-    Article createArticle (Article article);
-    Article updateArticle  (int articleId , Article article);
-    boolean deleteArticle(int articleId);
+    List<Article> getArticles();
 
+    Article getArticle(int articleId);
+
+    Article createArticle(Article article);
+
+    Article updateArticle(Article article);
+
+    boolean deleteArticle(Article article);
 
 
 }
