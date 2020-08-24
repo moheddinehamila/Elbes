@@ -1,6 +1,5 @@
 package hr.databank.elbes;
 
-import hr.databank.elbes.controller.AritcleController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
