@@ -12,9 +12,11 @@ import java.util.*;
 
 @Transactional
 @Repository
+
 public class ArticleDAOImpl implements IArticleDAO {
 @PersistenceContext
 private EntityManager entityManager ;
+
 
 
     @SuppressWarnings("unchecked")

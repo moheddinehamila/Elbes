@@ -17,6 +17,7 @@ import java.util.Date;
 public class Orders implements Serializable {
     @EmbeddedId
     private OrderPK orderPK;
+    private Long IdOrder;
 
 }
 
