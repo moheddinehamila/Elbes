@@ -4,10 +4,13 @@ import hr.databank.elbes.dao.IOrderDAO;
 import hr.databank.elbes.entities.Orders;
 import hr.databank.elbes.services.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class OrderServiceImplements implements IOrderService {
 
     @Autowired

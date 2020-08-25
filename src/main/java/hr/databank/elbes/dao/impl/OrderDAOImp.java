@@ -4,10 +4,13 @@ import hr.databank.elbes.dao.IOrderDAO;
 import hr.databank.elbes.dao.repo.OrderRepository;
 import hr.databank.elbes.entities.Orders;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class OrderDAOImp implements IOrderDAO {
     @Autowired
     private OrderRepository orderRepo;
@@ -24,6 +27,6 @@ public class OrderDAOImp implements IOrderDAO {
 
     @Override
     public List<Orders> getAll() {
-        return null;
+        return orderRepo.findAll();
     }
 }

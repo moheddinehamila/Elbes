@@ -8,20 +8,19 @@ import javax.persistence.*;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.ArrayList;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 
-public class Basket {
-
+public class Cart {
+    public int cartId;
     public int UserId;
-    private Long idArticle;
-    private int qte;
-    private float prixtotal;
-    private int IdBasket;
-
+    public double FinalPrice;
+    private ArrayList<CartItem> carttItems;
 
 
 }
