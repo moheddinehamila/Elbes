@@ -27,7 +27,7 @@ import hr.databank.elbes.entities.*;
 @Transactional
 @RequestMapping(value = "UserEntity")
 public class UserController {
-
+/*
 	@Autowired
 	private IUserService userService;
 
@@ -71,6 +71,6 @@ public class UserController {
         return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
     }
 
- 
+ */
 
 }

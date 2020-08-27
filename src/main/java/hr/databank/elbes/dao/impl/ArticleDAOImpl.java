@@ -2,6 +2,7 @@ package hr.databank.elbes.dao.impl;
 
 import hr.databank.elbes.dao.IArticleDAO;
 import hr.databank.elbes.entities.Article;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

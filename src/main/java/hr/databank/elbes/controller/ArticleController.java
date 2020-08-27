@@ -2,6 +2,7 @@ package hr.databank.elbes.controller;
 
 import hr.databank.elbes.entities.Article;
 import hr.databank.elbes.services.IArticleService;
+import hr.databank.elbes.services.IArticleServiceTEST;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +20,13 @@ public class ArticleController {
     @Autowired
     private IArticleService service;
 
+    @Autowired
+    private IArticleServiceTEST la;
+    @GetMapping("artic/{id}")
+    public Article gettArticle(@PathVariable("id") int id) {
+        Article article = la.gettArticle(id);
+        return article;
+    }
 
     @GetMapping("article")
     public ResponseEntity<List<Article>> getArticles() {

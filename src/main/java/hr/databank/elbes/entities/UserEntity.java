@@ -14,15 +14,20 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 public class UserEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	public int UserId;
+	@OneToMany(targetEntity= Orders.class ,mappedBy = "userEntity")
+	public List<Orders> ordes;
 
 	private String name;
 
@@ -42,6 +47,7 @@ public class UserEntity {
 		
 		
 	}
+
  
 	public UserEntity(	@JsonProperty("userId")  int userId,
 						@JsonProperty("name") String name,
@@ -63,7 +69,5 @@ public class UserEntity {
  
 	private Role role;
 
-	// @OneToMany
-	// List<Orders> orders;
 
 }
