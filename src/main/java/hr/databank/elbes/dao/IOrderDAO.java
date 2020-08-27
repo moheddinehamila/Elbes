@@ -10,4 +10,5 @@ public interface IOrderDAO {
     Orders AddOrder(Orders o);
     Optional<Orders> findById(OrderPK orderPK);
     List<Orders> getAll();
+    List<Orders>getOrdersByUserId(int userid);
 }

@@ -5,10 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -18,22 +15,31 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-public class Orders implements Serializable {
+
+public class Orders {
+
     @EmbeddedId
-    @Column(nullable = false, length = 50)
-    private OrderPK orderPK;
-   // @Column(columnDefinition = "default(false)")
-    private boolean status;
-     public ArrayList<CartItem> cartItem;
-public Orders(){
+    public OrderPK orderPK;
+    public ArrayList<CartItem> cartItem;
+    public boolean status;
 
-}
-   public Orders(@JsonProperty("orderPK")OrderPK orderPK, @JsonProperty("Status")Boolean status){
-      this.orderPK=orderPK;
-      this.status=status;
-   }
+    @ManyToOne
+    @JoinColumn(name = "idArticle",insertable = false,updatable = false)
+    private Article article;
+    @ManyToOne
+    @JoinColumn(name = "UserId",insertable = false,updatable = false)
+    private UserEntity userEntity;
 
+    public Orders(@JsonProperty("Order_pk") OrderPK orderPK,
+                  @JsonProperty("status") boolean status) {
 
+        this.orderPK = orderPK;
+        this.status = status;
+
+    }
+
+    public Orders() {
+    }
 }
 
 

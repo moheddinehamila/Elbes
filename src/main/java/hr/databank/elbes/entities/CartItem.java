@@ -16,7 +16,7 @@ public class CartItem {
     private double TotalPrice;
     private int idArticle;
     private int qte;
-   private int IdItem;
+    private int IdItem;
 
     @Override
     public String toString() {
@@ -29,8 +29,8 @@ public class CartItem {
     }
 
     @Override
-    public boolean equals(Object CI){
+    public boolean equals(Object CI) {
         CartItem item = (CartItem) CI;
-        return item!= null && item.idArticle==this.idArticle;
+        return item != null && item.idArticle == this.idArticle;
     }
 }
