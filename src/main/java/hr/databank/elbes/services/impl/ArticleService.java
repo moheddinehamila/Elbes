@@ -36,7 +36,7 @@ public class ArticleService implements IArticleService {
     }
 
     @Override
-    public boolean deleteArticle(Article article) {
-        return dao.deleteArticle(article);
+    public boolean deleteArticle(int id) {
+        return dao.deleteArticle(id);
     }
 }

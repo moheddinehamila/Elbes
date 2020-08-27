@@ -3,10 +3,8 @@ package hr.databank.elbes.dao.impl;
 import hr.databank.elbes.dao.IArticleDAO;
 import hr.databank.elbes.entities.Article;
 import org.springframework.stereotype.Repository;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import javax.transaction.Transactional;
 import java.util.*;
 
@@ -27,7 +25,7 @@ public class ArticleDAOImpl implements IArticleDAO {
         return (List<Article>) entityManager.createQuery(hql).getResultList();
 
         //String loginQuery = "select u from UserEntity u where u.email=:email and u.password=:password";
-       // return entityManager.createQuery(loginQuery).setParameter("email",'email@email.com').setParameter("password","pass123").getSingleResult();
+        // return entityManager.createQuery(loginQuery).setParameter("email",'email@email.com').setParameter("password","pass123").getSingleResult();
 
 
     }
@@ -43,7 +41,7 @@ public class ArticleDAOImpl implements IArticleDAO {
         entityManager.persist(article);
         return article;
     }
-  
+
 
     @Override
     public Article updateArticle(Article article) {
@@ -52,8 +50,9 @@ public class ArticleDAOImpl implements IArticleDAO {
     }
 
     @Override
-    public boolean deleteArticle(Article article) {
-        entityManager.remove(entityManager.merge(article));
+    public boolean deleteArticle(int id) {
+        Article article = getArticle(id );
+        entityManager.remove(article);
 
         boolean status = entityManager.contains(article);
         if (status) {
