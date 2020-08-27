@@ -29,6 +29,7 @@ public class ArticleController {
     }
 
     @GetMapping("article")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Article>> getArticles() {
 
         List<Article> articles = service.getArticles();
@@ -37,6 +38,7 @@ public class ArticleController {
     }
 
     @GetMapping("article/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     public Article getArticle(@PathVariable("id") int id) {
         Article article = service.getArticle(id);
         return article;
@@ -44,14 +46,16 @@ public class ArticleController {
 
 
     @PutMapping("article")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Article> createArticle(@RequestBody Article article) {
         Article a = service.createArticle(article);
         return new ResponseEntity<Article>(a, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "article/delete", method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteArticle(@RequestBody Article article) {
-        boolean isDeleted = service.deleteArticle(article);
+    @DeleteMapping ("article/delete/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public ResponseEntity<String> deleteArticle(@PathVariable int id ) {
+        boolean isDeleted = service.deleteArticle(id);
         if (isDeleted) {
             String responseContent = "Article has been deleted successfully";
             return new ResponseEntity<String>(responseContent, HttpStatus.OK);
@@ -61,6 +65,7 @@ public class ArticleController {
     }
 
     @PutMapping("article/update")
+    @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<Article> updateArticle(@RequestBody Article article) {
 
         Article a = service.updateArticle(article);

@@ -13,7 +13,7 @@ public interface IArticleService {
 
     Article updateArticle(Article article);
 
-    boolean deleteArticle(Article article);
+    boolean deleteArticle(int id );
 
 
 }

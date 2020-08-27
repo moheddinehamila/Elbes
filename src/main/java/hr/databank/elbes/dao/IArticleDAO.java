@@ -15,7 +15,7 @@ public interface IArticleDAO {
 
     Article updateArticle(Article article);
 
-    boolean deleteArticle(Article article);
+    boolean deleteArticle(int id);
 
 
 }

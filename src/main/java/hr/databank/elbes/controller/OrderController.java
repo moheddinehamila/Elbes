@@ -65,39 +65,7 @@ public class OrderController {
                 listo.add(o);
         }
 
-        return new ResponseEntity<List<Orders>>(listo, HttpStatus.OK);
 
-    }
-
-
-    @PutMapping("/add")
-    public ResponseEntity<Orders> createOrder(@RequestBody Orders orders) {
-System.out.println("******"+orders);
-        Orders o = iOrderService.AddOrder(orders);
-
-        return new ResponseEntity<Orders>(o, HttpStatus.OK);
-    }
-
-   /* @PutMapping("/add")
-    public ResponseEntity<Orders> addtooder(@RequestBody int articleid,int userid) {
-        iOrderService.getordersbyuserid(userid);
-
-        return new ResponseEntity<Orders>(o, HttpStatus.OK);
-    }*/
-
-    @PutMapping("neworder")
-    public ResponseEntity<List<Orders>> NewOrder(@PathVariable("id") int id) {
-        List<Orders> listc = new ArrayList<>();
-        for (Orders o : iOrderService.getordersbyuserid(id)) {
-            if (!(o.status))
-                listc.add(o);
-        }
-
-        return new ResponseEntity<List<Orders>>(listc, HttpStatus.OK);
-    }
-
-
-    /*
     @RequestMapping(value = "/add")
     public String addOrdersForm(Model model) {
         model.addAttribute("order", new Orders());
