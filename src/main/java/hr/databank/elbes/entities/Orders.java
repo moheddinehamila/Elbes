@@ -15,25 +15,26 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-
 public class Orders {
 
     @EmbeddedId
     public OrderPK orderPK;
+
     public ArrayList<CartItem> cartItem;
     public boolean status;
 
     @ManyToOne
-    @JoinColumn(name = "idArticle",insertable = false,updatable = false)
+    @JoinColumn(name = "idArticle", insertable = false, updatable = false)
     private Article article;
     @ManyToOne
-    @JoinColumn(name = "UserId",insertable = false,updatable = false)
+    @JoinColumn(name = "UserId", insertable = false, updatable = false)
     private UserEntity userEntity;
 
     public Orders(@JsonProperty("Order_pk") OrderPK orderPK,
                   @JsonProperty("status") boolean status) {
 
         this.orderPK = orderPK;
+
         this.status = status;
 
     }

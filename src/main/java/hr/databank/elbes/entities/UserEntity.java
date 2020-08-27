@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-
 @Getter
 @Setter
 public class UserEntity {
@@ -70,7 +69,5 @@ public class UserEntity {
  
 	private Role role;
 
-	// @OneToMany
-	// List<Orders> orders;
 
 }
