@@ -19,3 +19,4 @@ public interface IUserService {
 
 	List<UserEntity> getAll();
 }
+ 
