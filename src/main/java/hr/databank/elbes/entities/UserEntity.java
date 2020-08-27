@@ -7,45 +7,67 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-@AllArgsConstructor
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@NoArgsConstructor
 @Getter
 @Setter
 public class UserEntity {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+
 	public int UserId;
-    
-	@Column(nullable = false,length=50)
+	@OneToMany(targetEntity= Orders.class ,mappedBy = "userEntity")
+	public List<Orders> ordes;
+
 	private String name;
 
-	@Column(nullable = false,length=50)
-	private String familyName;
+	private String family_name;
 
-	@Column(nullable = false,length=50)
-	private String email;
-	
-	@Column(nullable = false,length=50)
-	private String password;	
-	
-	@Column(nullable = false,length=100)
+	private String password;
+
 	private String adress;
+	private String email;
+
 	public enum Role {
 
-		Admin,Client,Owner
+		Admin, Client, Owner
+
+	} 
+	public UserEntity() {
+		
 		
 	}
+
+ 
+	public UserEntity(	@JsonProperty("userId")  int userId,
+						@JsonProperty("name") String name,
+						@JsonProperty("family_name") String family_name, 
+						@JsonProperty("password") String password, 
+						@JsonProperty("adress") String adress,
+						@JsonProperty("email") String email,
+						@JsonProperty("role") Role role) {
+		super();
+		UserId = userId;
+		this.name = name; 
+		this.family_name = family_name;
+		this.password = password;
+		this.adress = adress;
+		this.email = email;
+		this.role = role;
+	}
+
  
 	private Role role;
 
- //@OneToMany
- //List<Orders> orders;
-	
-	
+
 }
