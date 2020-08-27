@@ -17,10 +17,12 @@ import java.util.Date;
 @Embeddable
 public class OrderPK implements Serializable {
     public int UserId;
+
+    @Column(nullable = false)
     private Long idArticle;
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
     @Column(nullable = false)
     private Date dateOrder;
-    private int IdBasket;
+
 
 }

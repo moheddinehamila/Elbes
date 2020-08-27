@@ -13,3 +13,4 @@ public interface IUserService {
     UserEntity findById(int id);
      List<UserEntity> getAll();
 }
+ 

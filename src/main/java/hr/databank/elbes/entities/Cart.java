@@ -22,5 +22,13 @@ public class Cart {
     public double FinalPrice;
     private ArrayList<CartItem> carttItems;
 
-
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cartId=" + cartId +
+                ", UserId=" + UserId +
+                ", FinalPrice=" + FinalPrice +
+                ", carttItems=" + carttItems +
+                '}';
+    }
 }

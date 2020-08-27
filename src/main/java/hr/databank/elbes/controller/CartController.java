@@ -1,6 +1,7 @@
 package hr.databank.elbes.controller;
 
 
+import hr.databank.elbes.entities.Cart;
 import hr.databank.elbes.entities.CartItem;
 import hr.databank.elbes.services.ICartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,28 +13,25 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/cart")
 public class CartController {
-
-
+    /*
     @Autowired
     ICartService icartService;
 
 
 
     @PostMapping("/{id}")
-    public void addItemtocart(int UserId, UUID idArticle) {
-        icartService.addItemtocart();
+    public void addItemtocart(int UserId, int idArticle) {
+      Cart cart=new Cart();
+        icartService.addItemtocart(cart,UserId,idArticle);
 
     }
 
     @Override
-    public void removeItemFromCart(int UserId, UUID idArticle) {
+    public void removeItemFromCart(int UserId, int idArticle) {
 
     }
 
-    @Override
-    public void setQuantity(UUID idArticle, int quantity) {
 
-    }
 
     @Override
     public ArrayList<CartItem> getItems() {
@@ -44,7 +42,7 @@ public class CartController {
 
     @PostMapping("/{id}")
     public String addItel(@PathVariable("id") String cartId, @RequestBody CartItem cartItem){
-        icartService.addProduct(cartId, cartItem);
+        icartService.addProduct();
         return "OK";
     }
 
@@ -59,13 +57,13 @@ public class CartController {
         return "OK";
     }
 
-    @PostMapping("{id}/quantity")
+   /* @PostMapping("{id}/quantity")
     public String setProductQuantity(@PathVariable("id") String cartId,@RequestBody CartItem cartItem){
 
-        UUID ArticleId = cartItem.getIdArticle();
+        int ArticleId = cartItem.getIdArticle();
         icartService.setProductQuantity(cartId, ArticleId, cartItem.getQte());
         return "OK";
-    }
+    }*/
 
 
 }

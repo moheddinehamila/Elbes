@@ -1,19 +1,21 @@
 package hr.databank.elbes.services;
 
 import hr.databank.elbes.entities.Article;
+import hr.databank.elbes.entities.Cart;
 import hr.databank.elbes.entities.CartItem;
 import hr.databank.elbes.entities.Orders;
 
 import java.util.ArrayList;
-import java.util.UUID;
+
 
 public interface ICartService {
 
-
-        public void addItemtocart(int UserId, UUID idArticle);
-        public void removeItemFromCart(int UserId,UUID idArticle);
-        public void setQuantity( UUID idArticle, int quantity);
-        public ArrayList<CartItem> getItems();
+        public Cart CartByUserId(int UserId);
+        public void addItemtocart(Cart cart, int UserId, int idArticle);
+        public void removeItemFromCart(Cart cart,int UserId,int idArticle);
+        public void IncrementQuantity( Cart cart,int IdItem, int quantity);
+        public void DecrementQuantity(Cart cart, int IdItem, int quantity);
+        public ArrayList<CartItem> getItems(Cart cart);
         //public Orders createOrder(String cartId, Orders order);
 
 }

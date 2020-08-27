@@ -1,6 +1,7 @@
 package hr.databank.elbes.services.impl;
 
 import hr.databank.elbes.dao.IOrderDAO;
+import hr.databank.elbes.entities.OrderPK;
 import hr.databank.elbes.entities.Orders;
 import hr.databank.elbes.services.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,8 @@ public class OrderServiceImplements implements IOrderService {
     }
 
     @Override
-    public Optional<Orders> findById(Long IdOrder) {
-        return iOrderDAO.findById(IdOrder);
+    public Orders findById(OrderPK orderPK) {
+        return iOrderDAO.findById(orderPK).get();
     }
 
 

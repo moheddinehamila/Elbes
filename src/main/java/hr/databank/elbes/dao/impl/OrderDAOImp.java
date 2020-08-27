@@ -2,6 +2,7 @@ package hr.databank.elbes.dao.impl;
 
 import hr.databank.elbes.dao.IOrderDAO;
 import hr.databank.elbes.dao.repo.OrderRepository;
+import hr.databank.elbes.entities.OrderPK;
 import hr.databank.elbes.entities.Orders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -20,8 +21,8 @@ public class OrderDAOImp implements IOrderDAO {
     }
 
     @Override
-    public Optional<Orders> findById(Long IdOrder) {
-       return orderRepo.findById(IdOrder);
+    public Optional<Orders> findById(OrderPK orderPK) {
+       return orderRepo.findById(orderPK);
     }
 
 
