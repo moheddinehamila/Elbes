@@ -1,6 +1,7 @@
 
 <div class="container">
     <h2>article </h2>
+    <input type="text" #myinput [(ngModel)]="name" (input)= "search()" placeholder="search by name">
      <table class="table">
       <thead>
         <tr>

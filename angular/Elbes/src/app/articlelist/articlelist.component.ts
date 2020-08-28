@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import {NgserviceService} from '../ngservice.service' ; 
 import {Article} from '../article';
 import { Router } from '@angular/router';
+import { TitleCasePipe } from '@angular/common';
 @Component({
   selector: 'app-articlelist',
   templateUrl: './articlelist.component.html',
   styleUrls: ['./articlelist.component.css']
 })
 export class ArticlelistComponent implements OnInit {
-  _articlelist: Article[]; 
+  _articlelist: Article[];
+  name: string ;  
   constructor(private _service:NgserviceService,private _route:Router) { }
 w
   ngOnInit(): void {
@@ -43,10 +45,18 @@ w
       });  
         
     }
-    
-         
-  
+    search(){
+      if (this.name!=""){
+        this._articlelist= this._articlelist.filter(res=>{
+          return res.name.toLocaleLowerCase().match(this.name.toLocaleLowerCase()); 
+        }); 
 
+      }else if (this.name==''){
+        this.ngOnInit() ; 
+      }
+     
+    }
+         
   
   }
  
