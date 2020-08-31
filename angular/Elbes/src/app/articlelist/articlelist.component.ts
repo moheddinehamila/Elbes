@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {NgserviceService} from '../ngservice.service' ; 
 import {Article} from '../article';
 import { Router } from '@angular/router';
-import { TitleCasePipe } from '@angular/common';
+import {MatTableModule, MatTable, MatTableDataSource} from '@angular/material/table';
+import { MatPaginator} from '@angular/material/paginator';
+import { from } from 'rxjs';
 @Component({
   selector: 'app-articlelist',
   templateUrl: './articlelist.component.html',
@@ -10,20 +12,23 @@ import { TitleCasePipe } from '@angular/common';
 })
 export class ArticlelistComponent implements OnInit {
   _articlelist: Article[];
-  name: string ;  
+  name: string ; 
+  datasource = new MatTableDataSource(this._articlelist);  
+  total : number;
+  page: number = 1;
+  
   constructor(private _service:NgserviceService,private _route:Router) { }
-w
+
   ngOnInit(): void {
     this._service.ArticleList().subscribe(
       data=>{console.log("ok read")
     this._articlelist=data; 
     
-    
     },
       error=>console.log("erreur ")
       
     )
-
+    this
   }
   add_aritcle(){
     this._route.navigate(['/addaricle']); 

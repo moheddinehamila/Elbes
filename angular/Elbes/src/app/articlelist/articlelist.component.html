@@ -1,7 +1,16 @@
 
+
+
+
+
+
+
+
+
+
 <div class="container">
     <h2>article </h2>
-    <input type="text" #myinput [(ngModel)]="name" (input)= "search()" placeholder="search by name">
+    <input type="text" [(ngModel)]="name" (input)= "search()" placeholder="search by name">
      <table class="table">
       <thead>
         <tr>
@@ -14,7 +23,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor ="let article of _articlelist">
+        <tr *ngFor ="let article of _articlelist | paginate: { id: 'listing_pagination',
+        itemsPerPage: 5,
+        currentPage: page,
+        totalItems: total }">
           <td>{{article.name}}</td>
           <td>{{article.couleur}}</td>
           <td>{{article.taille}}</td>
@@ -29,6 +41,8 @@
       
       </tbody>
     </table>
+    <div>
+      <pagination-controls  id="listing_pagination" maxSize="2" directionLinks="true" (pageChange)="page = $event"></pagination-controls>
+    </div>
     <button type="button" class="btn btn-success" (click)="add_aritcle()">add new article</button>
   </div>
-  
