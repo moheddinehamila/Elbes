@@ -12,6 +12,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
 @Getter
 @Setter
 @Entity
@@ -31,37 +32,37 @@ public class Article {
     private int qte;
 
     private float prix;
+    private String urlimage;
 
 
-    @OneToMany(targetEntity= Orders.class ,mappedBy = "article")
- public List<Orders> ordes;
+    @OneToMany(targetEntity = Orders.class, mappedBy = "article")
+    public List<Orders> ordes;
 
-    @Override
-    public String toString() {
-        return "Article{" +
-                "idArticle=" + idArticle +
-                ", nameArticle='" + nameArticle + '\'' +
-                ", couleur='" + couleur + '\'' +
-                ", taille=" + taille +
-                ", qte=" + qte +
-                ", prix=" + prix +
-                '}';
-    }
 
     public Article(@JsonProperty("idarticle") int idArticle,
                    @JsonProperty("name") String nameArticle,
                    @JsonProperty("couleur") String couleur,
                    @JsonProperty("taille") int taille,
                    @JsonProperty("qte") int qte,
-                   @JsonProperty("prix") float prix) {
+                   @JsonProperty("prix") float prix, String urlimage) {
         this.idArticle = idArticle;
         this.nameArticle = nameArticle;
         this.couleur = couleur;
         this.taille = taille;
         this.qte = qte;
         this.prix = prix;
+        this.urlimage = urlimage;
 
     }
 
+    public String getUrlimage() {
+        return urlimage;
+    }
 
+    public void setUrlimage(String urlimage) {
+        this.urlimage = urlimage;
+    }
 }
+
+
+
