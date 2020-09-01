@@ -9,12 +9,16 @@ import org.springframework.http.ResponseEntity;
 
 
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.List;
 
 @Transactional
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("hamdi")
 public class ArticleController {
     @Autowired
@@ -22,6 +26,7 @@ public class ArticleController {
 
     @Autowired
     private IArticleServiceTEST la;
+
     @GetMapping("artic/{id}")
     public Article gettArticle(@PathVariable("id") int id) {
         Article article = la.gettArticle(id);
@@ -52,9 +57,9 @@ public class ArticleController {
         return new ResponseEntity<Article>(a, HttpStatus.OK);
     }
 
-    @DeleteMapping ("article/delete/{id}")
+    @DeleteMapping("article/delete/{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<String> deleteArticle(@PathVariable int id ) {
+    public ResponseEntity<String> deleteArticle(@PathVariable int id) {
         boolean isDeleted = service.deleteArticle(id);
         if (isDeleted) {
             String responseContent = "Article has been deleted successfully";
@@ -70,6 +75,13 @@ public class ArticleController {
 
         Article a = service.updateArticle(article);
         return new ResponseEntity<Article>(a, HttpStatus.OK);
+    }
+
+    @PostMapping("/uploadImage")
+    public Path uplaodImage(@RequestParam("imageFile") MultipartFile file) throws Exception {
+
+        return service.saveImage(file);
+
     }
 
 
