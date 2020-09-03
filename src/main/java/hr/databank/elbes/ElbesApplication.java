@@ -1,16 +1,8 @@
 package hr.databank.elbes;
 
-import hr.databank.elbes.entities.Article;
-import hr.databank.elbes.entities.Cart;
-import hr.databank.elbes.entities.CartItem;
-import hr.databank.elbes.services.impl.CartServiceImplement;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
-
-import javax.annotation.PostConstruct;
-import java.util.ArrayList;
 
 
 @SpringBootApplication

@@ -14,13 +14,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-public class UserEntity {
+public class UserEntity implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -48,14 +47,69 @@ public class UserEntity {
 		
 	}
 
- 
-	public UserEntity(	@JsonProperty("userId")  int userId,
-						@JsonProperty("name") String name,
-						@JsonProperty("family_name") String family_name, 
-						@JsonProperty("password") String password, 
-						@JsonProperty("adress") String adress,
-						@JsonProperty("email") String email,
-						@JsonProperty("role") Role role) {
+	public Role getRole() {
+		return role;
+	}
+
+	public void setUserId(int userId) {
+		UserId = userId;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setFamily_name(String family_name) {
+		this.family_name = family_name;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setAdress(String adress) {
+		this.adress = adress;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public int getUserId() {
+		return UserId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getFamily_name() {
+		return family_name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public String getAdress() {
+		return adress;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public UserEntity(@JsonProperty("userId")  int userId,
+					  @JsonProperty("name") String name,
+					  @JsonProperty("family_name") String family_name,
+					  @JsonProperty("password") String password,
+					  @JsonProperty("adress") String adress,
+					  @JsonProperty("email") String email,
+					  @JsonProperty("role") Role role) {
 		super();
 		UserId = userId;
 		this.name = name; 
