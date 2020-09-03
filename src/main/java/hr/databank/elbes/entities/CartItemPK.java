@@ -10,13 +10,12 @@ import java.io.Serializable;
 
 
 
-@Getter
-@Setter
+ 
 @Embeddable
 public class CartItemPK implements Serializable {
 
  public OrderPK orderPK;
- private int idArticle;
+ public int idArticle;
 
  public CartItemPK(@JsonProperty("Order_pk") OrderPK orderPK, @JsonProperty("idAticle") int idArticle) {
   this.orderPK=orderPK;
@@ -26,7 +25,23 @@ public class CartItemPK implements Serializable {
  public CartItemPK() {
  }
 
- @Override
+ public OrderPK getOrderPK() {
+	return orderPK;
+}
+
+public void setOrderPK(OrderPK orderPK) {
+	this.orderPK = orderPK;
+}
+
+public int getIdArticle() {
+	return idArticle;
+}
+
+public void setIdArticle(int idArticle) {
+	this.idArticle = idArticle;
+}
+
+@Override
  public String toString() {
   return "CartItemPK{" +
           "orderPK=" + orderPK +

@@ -16,9 +16,7 @@ import java.util.Objects;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
-
+ 
 
 @Embeddable
 public class OrderPK implements Serializable {
@@ -37,7 +35,23 @@ public class OrderPK implements Serializable {
                 '}';
     }
 
-    public OrderPK(@JsonProperty("UserId") int UserId,
+    public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public Date getDateOrder() {
+		return dateOrder;
+	}
+
+	public void setDateOrder(Date dateOrder) {
+		this.dateOrder = dateOrder;
+	}
+
+	public OrderPK(@JsonProperty("UserId") int UserId,
                    @JsonProperty("date") Date dateOrder) {
         this.dateOrder = dateOrder;
         this.userId = UserId;

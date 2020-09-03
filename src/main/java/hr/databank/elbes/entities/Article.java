@@ -1,6 +1,5 @@
 package hr.databank.elbes.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import hr.databank.elbes.services.impl.OrderServiceImplements;
 import lombok.AllArgsConstructor;
@@ -8,111 +7,100 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Entity
-@NoArgsConstructor
 
 public class Article {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idArticle;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int idArticle;
 
-    private String nameArticle;
+	private String nameArticle;
 
-    private String couleur;
+	private String couleur;
 
-    private int taille;
+	private int taille;
 
-    private int qte;
+	private int qte;
 
-    private float prix;
-    private String urlimage;
+	private float prix;
+	private String urlimage;
 
-
-
-
-
-    @OneToMany(targetEntity = Orders.class, mappedBy = "article")
-    public List<Orders> ordes;
+	public Article() {
+		super();
+	}
 
 
+	public Article(@JsonProperty("idarticle") int idArticle, @JsonProperty("name") String nameArticle,
+			@JsonProperty("couleur") String couleur, @JsonProperty("taille") int taille, @JsonProperty("qte") int qte,
+			@JsonProperty("prix") float prix, String urlimage) {
+		this.idArticle = idArticle;
+		this.nameArticle = nameArticle;
+		this.couleur = couleur;
+		this.taille = taille;
+		this.qte = qte;
+		this.prix = prix;
+		this.urlimage = urlimage;
 
-    public Article(@JsonProperty("idarticle") int idArticle,
-                   @JsonProperty("name") String nameArticle,
-                   @JsonProperty("couleur") String couleur,
-                   @JsonProperty("taille") int taille,
-                   @JsonProperty("qte") int qte,
-                   @JsonProperty("prix") float prix, String urlimage) {
-        this.idArticle = idArticle;
-        this.nameArticle = nameArticle;
-        this.couleur = couleur;
-        this.taille = taille;
-        this.qte = qte;
-        this.prix = prix;
-        this.urlimage = urlimage;
+	}
 
-    }
+	public int getIdArticle() {
+		return idArticle;
+	}
 
+	public void setIdArticle(int idArticle) {
+		this.idArticle = idArticle;
+	}
 
-    public int getIdArticle() {
-        return idArticle;
-    }
+	public String getNameArticle() {
+		return nameArticle;
+	}
 
-    public void setIdArticle(int idArticle) {
-        this.idArticle = idArticle;
-    }
+	public void setNameArticle(String nameArticle) {
+		this.nameArticle = nameArticle;
+	}
 
-    public String getNameArticle() {
-        return nameArticle;
-    }
+	public String getCouleur() {
+		return couleur;
+	}
 
-    public void setNameArticle(String nameArticle) {
-        this.nameArticle = nameArticle;
-    }
+	public void setCouleur(String couleur) {
+		this.couleur = couleur;
+	}
 
-    public String getCouleur() {
-        return couleur;
-    }
+	public int getTaille() {
+		return taille;
+	}
 
-    public void setCouleur(String couleur) {
-        this.couleur = couleur;
-    }
+	public void setTaille(int taille) {
+		this.taille = taille;
+	}
 
-    public int getTaille() {
-        return taille;
-    }
+	public int getQte() {
+		return qte;
+	}
 
-    public void setTaille(int taille) {
-        this.taille = taille;
-    }
+	public void setQte(int qte) {
+		this.qte = qte;
+	}
 
-    public int getQte() {
-        return qte;
-    }
+	public float getPrix() {
+		return prix;
+	}
 
-    public void setQte(int qte) {
-        this.qte = qte;
-    }
+	public void setPrix(float prix) {
+		this.prix = prix;
+	}
 
-    public float getPrix() {
-        return prix;
-    }
+	public String getUrlimage() {
+		return urlimage;
+	}
 
-    public void setPrix(float prix) {
-        this.prix = prix;}
+	public void setUrlimage(String urlimage) {
+		this.urlimage = urlimage;
+	}
 
-    public String getUrlimage() {
-        return urlimage;
-    }
-
-    public void setUrlimage(String urlimage) {
-        this.urlimage = urlimage;
-    }
-
-
-    }
+}
