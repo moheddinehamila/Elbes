@@ -44,6 +44,12 @@ public class UserServiceImplement implements IUserService {
 		return  iudao.findById(id);
 	}
 
+	@Override
+	public UserEntity connect(String email, String password) {
+		
+		return iudao.connect(email, password);
+	}
+
  
 
 	 
