@@ -13,6 +13,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Entity
 @NoArgsConstructor
 
@@ -30,36 +31,33 @@ public class Article {
     private int qte;
 
     private float prix;
+    private String urlimage;
 
 
 
 
-    @Override
-    public String toString() {
-        return "Article{" +
-                "idArticle=" + idArticle +
-                ", nameArticle='" + nameArticle + '\'' +
-                ", couleur='" + couleur + '\'' +
-                ", taille=" + taille +
-                ", qte=" + qte +
-                ", prix=" + prix +
-                '}';
-    }
+
+    @OneToMany(targetEntity = Orders.class, mappedBy = "article")
+    public List<Orders> ordes;
+
+
 
     public Article(@JsonProperty("idarticle") int idArticle,
                    @JsonProperty("name") String nameArticle,
                    @JsonProperty("couleur") String couleur,
                    @JsonProperty("taille") int taille,
                    @JsonProperty("qte") int qte,
-                   @JsonProperty("prix") float prix) {
+                   @JsonProperty("prix") float prix, String urlimage) {
         this.idArticle = idArticle;
         this.nameArticle = nameArticle;
         this.couleur = couleur;
         this.taille = taille;
         this.qte = qte;
         this.prix = prix;
+        this.urlimage = urlimage;
 
     }
+
 
     public int getIdArticle() {
         return idArticle;
@@ -106,6 +104,15 @@ public class Article {
     }
 
     public void setPrix(float prix) {
-        this.prix = prix;
+        this.prix = prix;}
+
+    public String getUrlimage() {
+        return urlimage;
     }
-}
+
+    public void setUrlimage(String urlimage) {
+        this.urlimage = urlimage;
+    }
+
+
+    }
