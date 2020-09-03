@@ -13,8 +13,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
+
 @Entity
 @NoArgsConstructor
 
@@ -35,8 +34,12 @@ public class Article {
     private String urlimage;
 
 
+
+
+
     @OneToMany(targetEntity = Orders.class, mappedBy = "article")
     public List<Orders> ordes;
+
 
 
     public Article(@JsonProperty("idarticle") int idArticle,
@@ -55,6 +58,54 @@ public class Article {
 
     }
 
+
+    public int getIdArticle() {
+        return idArticle;
+    }
+
+    public void setIdArticle(int idArticle) {
+        this.idArticle = idArticle;
+    }
+
+    public String getNameArticle() {
+        return nameArticle;
+    }
+
+    public void setNameArticle(String nameArticle) {
+        this.nameArticle = nameArticle;
+    }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
+
+    public int getTaille() {
+        return taille;
+    }
+
+    public void setTaille(int taille) {
+        this.taille = taille;
+    }
+
+    public int getQte() {
+        return qte;
+    }
+
+    public void setQte(int qte) {
+        this.qte = qte;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;}
+
     public String getUrlimage() {
         return urlimage;
     }
@@ -62,7 +113,6 @@ public class Article {
     public void setUrlimage(String urlimage) {
         this.urlimage = urlimage;
     }
-}
 
 
-
+    }
