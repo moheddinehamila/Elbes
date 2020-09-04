@@ -42,6 +42,7 @@ public class ArticleDAOImpl implements IArticleDAO {
 
     @Override
     public Article createArticle(Article article) {
+        article.setPrixT(article.getPrix()*article.getQte());
         entityManager.persist(article);
         return article;
     }
@@ -58,11 +59,8 @@ public class ArticleDAOImpl implements IArticleDAO {
         Article article = getArticle(id);
         entityManager.remove(article);
 
-        boolean status = entityManager.contains(article);
-        if (status) {
-            return false;
-        }
-        return true;
+        return !entityManager.contains(article);
+
     }
 
     @Override

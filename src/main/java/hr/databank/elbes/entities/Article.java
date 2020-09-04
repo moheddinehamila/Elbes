@@ -32,6 +32,7 @@ public class Article {
     private int qte;
 
     private float prix;
+    private float prixT;
     private String urlimage;
 
 
@@ -39,18 +40,21 @@ public class Article {
     public List<Orders> ordes;
 
 
-    public Article(@JsonProperty("idarticle") int idArticle,
-                   @JsonProperty("name") String nameArticle,
+    public Article(@JsonProperty("idArticle") int idArticle,
+                   @JsonProperty("nameArticle") String nameArticle,
                    @JsonProperty("couleur") String couleur,
                    @JsonProperty("taille") int taille,
                    @JsonProperty("qte") int qte,
-                   @JsonProperty("prix") float prix, String urlimage) {
+                   @JsonProperty("prix") float prix,
+                   @JsonProperty("prixT") float prixT,
+                   String urlimage) {
         this.idArticle = idArticle;
         this.nameArticle = nameArticle;
         this.couleur = couleur;
         this.taille = taille;
         this.qte = qte;
         this.prix = prix;
+        this.prixT =prixT;
         this.urlimage = urlimage;
 
     }
@@ -61,6 +65,18 @@ public class Article {
 
     public void setUrlimage(String urlimage) {
         this.urlimage = urlimage;
+    }
+
+    public void setPrixT(float prixT) {
+        this.prixT = prixT;
+    }
+
+    public int getQte() {
+        return qte;
+    }
+
+    public float getPrix() {
+        return prix;
     }
 }
 
