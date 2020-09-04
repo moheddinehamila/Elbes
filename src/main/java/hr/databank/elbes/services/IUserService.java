@@ -18,5 +18,7 @@ public interface IUserService {
 	UserEntity findById(int id);
 
 	List<UserEntity> getAll();
+
+    UserEntity connect(String email, String password) ;
 }
  
