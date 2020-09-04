@@ -14,5 +14,6 @@ public interface IUserDAO {
     boolean DeleteUser(UserEntity id);
     UserEntity findById(int id);
     List<UserEntity> getAll();
+    UserEntity connect(String email, String password) ;
 }
 

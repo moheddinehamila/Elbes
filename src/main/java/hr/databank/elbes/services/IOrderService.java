@@ -1,8 +1,6 @@
 package hr.databank.elbes.services;
 
-import hr.databank.elbes.entities.Cart;
-import hr.databank.elbes.entities.OrderPK;
-import hr.databank.elbes.entities.Orders;
+import hr.databank.elbes.entities.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,9 +12,18 @@ public interface IOrderService {
 
     List<Orders> getAll();
 
-    List<Orders> getordersbyuserid(int userid);
+    List<Orders> getordersbyuserid(OrderPK orderPK);
 
-    void addItemtocart(Cart cart, int UserId, int idArticle);
+    Orders getCartByUserID(int id_user );
+    Article getCartByArticleID(int idArticle);
+    CartItem addArticleToCartItem(int IdUser,int idArticle);
+     List<CartItem> getCartItemByUserID(int idu);
+     Orders SaveCartToOrder(int userId);
+   CartItem incrementQteInCart(int idUser, int idArticle);
+  CartItem decrementQteInCart(int idUser, int idArticle);
+    List<CartItem> deleteFromCart(int idUser, int idArticle);
+   List<CartItem> showMyOrders(int idUser);
+
 
 
 }

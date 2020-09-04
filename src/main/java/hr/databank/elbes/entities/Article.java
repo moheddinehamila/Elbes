@@ -1,6 +1,5 @@
 package hr.databank.elbes.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import hr.databank.elbes.services.impl.OrderServiceImplements;
 import lombok.AllArgsConstructor;
@@ -8,15 +7,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Getter
-@Setter
 @Entity
-@NoArgsConstructor
 
 public class Article {
     @Id
@@ -79,6 +74,3 @@ public class Article {
         return prix;
     }
 }
-
-
-
