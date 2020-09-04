@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @NoArgsConstructor
@@ -21,8 +18,9 @@ public class Post {
     private int idPost;
 
     private String textPost;
-
     private int userId;
+
+
 
     public Post(@JsonProperty("idPost") int idPost,
                 @JsonProperty("textPost") String textPost,
