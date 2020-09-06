@@ -42,10 +42,10 @@ public class PostController {
 
     @GetMapping("{id}")
     @CrossOrigin(origins = "http://localhost:4200")
-    public ResponseEntity<Post> getPost(@PathVariable("id") int id) {
+    public Post getPost(@PathVariable("id") int id) {
 
         Post post = service.getPost(id);
-        return new ResponseEntity<Post>(post, HttpStatus.OK);
+        return post ;
 
     }
 
