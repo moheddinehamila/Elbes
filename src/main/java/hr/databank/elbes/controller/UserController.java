@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,7 @@ import hr.databank.elbes.entities.*;
 
 @RestController
 @Transactional
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value = "UserEntity")
 public class UserController {
 
@@ -42,8 +44,11 @@ public class UserController {
 	public ResponseEntity<UserEntity> connect(@PathVariable("email") String email,
 			@PathVariable("password") String password) {
 		UserEntity user = userService.connect(email, password);
-		return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
-	}
+		if (user!=null)
+			return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
+		else
+		return new ResponseEntity<UserEntity>(user, HttpStatus.FORBIDDEN);
+	} 
 
 	@GetMapping("user/{id}")
 	public UserEntity getUser(@PathVariable("id") int id) {

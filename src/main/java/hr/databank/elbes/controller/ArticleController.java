@@ -33,7 +33,7 @@ public class ArticleController {
         return article;
     }
 
-    @GetMapping("article")
+    @GetMapping("article") 
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Article>> getArticles() {
 
