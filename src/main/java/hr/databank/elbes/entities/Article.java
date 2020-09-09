@@ -1,38 +1,30 @@
 package hr.databank.elbes.entities;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import hr.databank.elbes.services.impl.OrderServiceImplements;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
+@NoArgsConstructor
+
 
 @Entity
 
 public class Article {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY , generator = "articleSeq")
+    @SequenceGenerator(name="articleSeq" , sequenceName = "article_idarticle_seq")
+
     private int idArticle;
 
     private String nameArticle;
-
     private String couleur;
-
     private int taille;
-
     private int qte;
-
     private float prix;
     private float prixT;
     private String urlimage;
-
-
-    @OneToMany(targetEntity = Orders.class, mappedBy = "article")
-    public List<Orders> ordes;
 
 
     public Article(@JsonProperty("idArticle") int idArticle,
@@ -49,10 +41,12 @@ public class Article {
         this.taille = taille;
         this.qte = qte;
         this.prix = prix;
-        this.prixT =prixT;
+        this.prixT = prixT;
         this.urlimage = urlimage;
 
     }
+
+
 
     public String getUrlimage() {
         return urlimage;
@@ -68,6 +62,50 @@ public class Article {
 
     public int getQte() {
         return qte;
+    }
+
+    public void setQte(int qte) {
+        this.qte = qte;
+    }
+
+    public void setIdArticle(int idArticle) {
+        this.idArticle = idArticle;
+    }
+
+    public void setNameArticle(String nameArticle) {
+        this.nameArticle = nameArticle;
+    }
+
+    public void setCouleur(String couleur) {
+        this.couleur = couleur;
+    }
+
+    public void setTaille(int taille) {
+        this.taille = taille;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public int getIdArticle() {
+        return idArticle;
+    }
+
+    public String getNameArticle() {
+        return nameArticle;
+    }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public int getTaille() {
+        return taille;
+    }
+
+    public float getPrixT() {
+        return prixT;
     }
 
     public float getPrix() {

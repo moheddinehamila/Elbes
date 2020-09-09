@@ -1,6 +1,7 @@
 package hr.databank.elbes.services;
 
 import hr.databank.elbes.entities.Article;
+import hr.databank.elbes.entities.Post;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.web.multipart.MultipartFile;
 

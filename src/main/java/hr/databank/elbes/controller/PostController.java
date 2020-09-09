@@ -3,7 +3,7 @@ package hr.databank.elbes.controller;
 
 import hr.databank.elbes.entities.Post;
 import hr.databank.elbes.services.IPostService;
-import net.sf.jasperreports.components.barcode4j.POSTNETComponent;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +35,8 @@ public class PostController {
     public ResponseEntity<Post> createPost(@RequestBody Post post, @PathVariable("id") int id) {
 
         Post p = service.createPost(post);
-        p.setUserId(id);
+
+       // p.setUser(p.getUser());
         return new ResponseEntity<Post>(p, HttpStatus.OK);
 
     }
@@ -69,6 +70,17 @@ public class PostController {
         String error = "Error while deleting post  from database";
         return new ResponseEntity<String>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
-
+    @GetMapping("like/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public int  getNumLike(@PathVariable int id) {
+        Post post = getPost(id);
+        return service.getNumLike(post);
+    }
+    @GetMapping("dislike/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
+    public int  getdisNumLike(@PathVariable int id) {
+        Post post = getPost(id);
+        return service.getNumDislike(post);
+    }
 
 }

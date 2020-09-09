@@ -3,6 +3,7 @@ package hr.databank.elbes.dao;
 
 import hr.databank.elbes.entities.Post;
 
+
 import java.util.List;
 
 
@@ -17,4 +18,9 @@ public interface IPostDAO {
     Post updatePost(Post post);
 
     boolean deletePost(int idPost);
+    int getNumLike (Post post );
+    int  getNumDislike (Post post);
+
+
+
 }

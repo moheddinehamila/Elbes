@@ -21,7 +21,7 @@ public class Orders implements Serializable {
     public OrderPK orderPK;
     public boolean status;
     @Transient
-    @OneToMany(mappedBy = "orders")
+   // @OneToMany(mappedBy = "orders")
     private List<CartItem>cartItems;
 
     @ManyToOne
