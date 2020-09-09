@@ -12,4 +12,7 @@ public interface IPostService {
     Post updatePost(Post post);
 
     boolean deletePost(int idPost);
+    int getNumLike (Post post );
+    int  getNumDislike (Post post);
+
 }

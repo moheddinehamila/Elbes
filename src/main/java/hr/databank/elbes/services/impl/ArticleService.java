@@ -2,6 +2,7 @@ package hr.databank.elbes.services.impl;
 
 import hr.databank.elbes.dao.IArticleDAO;
 import hr.databank.elbes.entities.Article;
+import hr.databank.elbes.entities.Post;
 import hr.databank.elbes.services.IArticleService;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -68,4 +69,5 @@ public class ArticleService implements IArticleService {
     JasperExportManager.exportReportToPdfFile(jasperPrint, path+"/articles.pdf");
 
     }
+
 }

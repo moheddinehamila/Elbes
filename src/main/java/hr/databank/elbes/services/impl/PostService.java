@@ -39,4 +39,14 @@ public class PostService implements IPostService {
     public boolean deletePost(int idPost) {
         return dao.deletePost(idPost);
     }
+
+    @Override
+    public int getNumLike(Post post) {
+        return dao.getNumLike(post);
+    }
+
+    @Override
+    public int getNumDislike(Post post) {
+        return dao.getNumDislike(post);
+    }
 }

@@ -2,7 +2,6 @@ package hr.databank.elbes.controller;
 
 import hr.databank.elbes.entities.Article;
 import hr.databank.elbes.services.IArticleService;
-import hr.databank.elbes.services.IArticleServiceTEST;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -26,19 +24,9 @@ public class ArticleController {
     @Autowired
     private IArticleService service;
 
-    @Autowired
-    private IArticleServiceTEST la;
-
-    @GetMapping("artic/{id}")
-    public Article gettArticle(@PathVariable("id") int id) {
-        Article article = la.gettArticle(id);
-        return article;
-    }
-
     @GetMapping("article")
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Article>> getArticles() {
-
         List<Article> articles = service.getArticles();
         return new ResponseEntity<List<Article>>(articles, HttpStatus.OK);
 
@@ -88,7 +76,8 @@ public class ArticleController {
 
     @GetMapping("/facture")
     @CrossOrigin(origins = "http://localhost:4200")
-    public  void facture() throws FileNotFoundException, JRException {
-         service.exportfacture() ;
+    public void facture() throws FileNotFoundException, JRException {
+        service.exportfacture();
     }
+
 }
