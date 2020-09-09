@@ -5,8 +5,10 @@ import java.util.List;
 import hr.databank.elbes.dao.IUserDAO;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
@@ -41,12 +43,18 @@ public class UserDAOImpl implements IUserDAO {
 	}
 	@Override
 	public UserEntity connect(String email, String password) {
-
-		TypedQuery<UserEntity> q = entityManager.createQuery("select u from UserEntity u where u.email=:email and u.password=:password",UserEntity.class);
+		 
+		
+		Query q = entityManager.createQuery("select u from UserEntity u where u.email=:email and u.password=:password");
 		q.setParameter("email", email);
 		q.setParameter("password", password);
-		System.out.println(q.getSingleResult());
-		return q.getSingleResult();
+		
+		try {
+		return (UserEntity)q.getSingleResult(); 
+		} catch (NoResultException e) {
+		    
+		}
+		 return null; 
 	} 
  
 	@Override

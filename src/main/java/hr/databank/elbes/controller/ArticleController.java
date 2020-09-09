@@ -24,7 +24,17 @@ public class ArticleController {
     @Autowired
     private IArticleService service;
 
-    @GetMapping("article")
+
+    @Autowired
+    private IArticleServiceTEST la;
+
+    @GetMapping("artic/{id}")
+    public Article gettArticle(@PathVariable("id") int id) {
+        Article article = la.gettArticle(id);
+        return article;
+    }
+
+    @GetMapping("article") 
     @CrossOrigin(origins = "http://localhost:4200")
     public ResponseEntity<List<Article>> getArticles() {
         List<Article> articles = service.getArticles();
