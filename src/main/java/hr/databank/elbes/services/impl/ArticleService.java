@@ -3,14 +3,21 @@ package hr.databank.elbes.services.impl;
 import hr.databank.elbes.dao.IArticleDAO;
 import hr.databank.elbes.entities.Article;
 import hr.databank.elbes.services.IArticleService;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Transactional
 @Service
@@ -46,5 +53,19 @@ public class ArticleService implements IArticleService {
     @Override
     public Path saveImage(MultipartFile imagefile) throws Exception {
         return dao.saveImage(imagefile);
+    }
+
+    @Override
+    public void exportfacture() throws FileNotFoundException, JRException {
+       String path = "C:/files";
+        List<Article> articlesInFacture =getArticles();
+        File file = ResourceUtils.getFile("classpath:articles.jrxml ");
+        JasperReport jasperReport = JasperCompileManager.compileReport((file.getAbsolutePath()));
+        JRBeanCollectionDataSource  dataSource= new JRBeanCollectionDataSource(articlesInFacture);
+        Map<String, Object> params = new HashMap<>();
+        params.put("createdby", "HamdiBhy");
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,params, dataSource);
+    JasperExportManager.exportReportToPdfFile(jasperPrint, path+"/articles.pdf");
+
     }
 }

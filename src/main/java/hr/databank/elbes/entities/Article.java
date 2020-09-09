@@ -14,93 +14,63 @@ import java.util.List;
 @Entity
 
 public class Article {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int idArticle;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int idArticle;
 
-	private String nameArticle;
+    private String nameArticle;
 
-	private String couleur;
+    private String couleur;
 
-	private int taille;
+    private int taille;
 
-	private int qte;
+    private int qte;
 
-	private float prix;
-	private String urlimage;
-
-	public Article() {
-		super();
-	}
+    private float prix;
+    private float prixT;
+    private String urlimage;
 
 
-	public Article(@JsonProperty("idarticle") int idArticle, @JsonProperty("name") String nameArticle,
-			@JsonProperty("couleur") String couleur, @JsonProperty("taille") int taille, @JsonProperty("qte") int qte,
-			@JsonProperty("prix") float prix, String urlimage) {
-		this.idArticle = idArticle;
-		this.nameArticle = nameArticle;
-		this.couleur = couleur;
-		this.taille = taille;
-		this.qte = qte;
-		this.prix = prix;
-		this.urlimage = urlimage;
+    @OneToMany(targetEntity = Orders.class, mappedBy = "article")
+    public List<Orders> ordes;
 
-	}
 
-	public int getIdArticle() {
-		return idArticle;
-	}
+    public Article(@JsonProperty("idArticle") int idArticle,
+                   @JsonProperty("nameArticle") String nameArticle,
+                   @JsonProperty("couleur") String couleur,
+                   @JsonProperty("taille") int taille,
+                   @JsonProperty("qte") int qte,
+                   @JsonProperty("prix") float prix,
+                   @JsonProperty("prixT") float prixT,
+                   String urlimage) {
+        this.idArticle = idArticle;
+        this.nameArticle = nameArticle;
+        this.couleur = couleur;
+        this.taille = taille;
+        this.qte = qte;
+        this.prix = prix;
+        this.prixT =prixT;
+        this.urlimage = urlimage;
 
-	public void setIdArticle(int idArticle) {
-		this.idArticle = idArticle;
-	}
+    }
 
-	public String getNameArticle() {
-		return nameArticle;
-	}
+    public String getUrlimage() {
+        return urlimage;
+    }
 
-	public void setNameArticle(String nameArticle) {
-		this.nameArticle = nameArticle;
-	}
+    public void setUrlimage(String urlimage) {
+        this.urlimage = urlimage;
+    }
 
-	public String getCouleur() {
-		return couleur;
-	}
+    public void setPrixT(float prixT) {
+        this.prixT = prixT;
+    }
 
-	public void setCouleur(String couleur) {
-		this.couleur = couleur;
-	}
+    public int getQte() {
+        return qte;
+    }
 
-	public int getTaille() {
-		return taille;
-	}
-
-	public void setTaille(int taille) {
-		this.taille = taille;
-	}
-
-	public int getQte() {
-		return qte;
-	}
-
-	public void setQte(int qte) {
-		this.qte = qte;
-	}
-
-	public float getPrix() {
-		return prix;
-	}
-
-	public void setPrix(float prix) {
-		this.prix = prix;
-	}
-
-	public String getUrlimage() {
-		return urlimage;
-	}
-
-	public void setUrlimage(String urlimage) {
-		this.urlimage = urlimage;
-	}
-
+    public float getPrix() {
+        return prix;
+    }
 }
